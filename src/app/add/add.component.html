@@ -1,0 +1,158 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="board-header">
+    <!-- <nav>
+      <button class="header-button">Board Name</button>
+      <button class="header-button">Another Button</button>
+    </nav> -->
+  </div>
+  <br>
+  <br>
+  <div class="stack">
+    <div class="list" *ngFor="let currentList of childAllLists">
+      <h4 class="list-header">{{currentList.title}}</h4>
+      <ul>
+        <li *ngFor="let card of currentList.cards" class="list-card">
+          {{card.title}}
+        </li>
+      </ul>
+      <button class="btn new-card-button">
+        + Add a card
+        <div class="card textcenter mt-3" [ngClass]="{'add-card': showFormCard}">
+  
+          <div class="apt-addheading card-header bg-primary text-white"
+          (click)="toggleCardDisplay()">
+             <!--<fa-icon icon="plus"></fa-icon> -->
+          </div><!-- card-header -->
+        
+          <div class="card-body">
+        
+            <form id="cardForm" novalidate
+            (ngSubmit)="newCard(cardForm.value)"  
+            #cardForm="ngForm"
+            >
+             <!--handleadd hiya newCard -->
+            
+              <div class="form-group form-row">
+                <label class="col-md-2 col-form-label text-md-right" for="cardName">Card Name</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="cardName" id="cardName" placeholder="card's Name">
+                </div><!-- col-md-10 --> 
+              </div><!-- form-group --> 
+        
+            
+        
+               <div class="form-group form-row mb-0">
+                <div class="offset-md-2 col-md-10">
+                  <button type="submit" class="btn btn-primary d-block ml-auto"
+                  >Add Card</button>
+                </div><!-- col-md-offset-2 --> 
+              </div><!-- form-group -->
+        
+            </form>
+          </div><!-- card-body -->
+        </div><!-- card-primary -->   
+  
+  
+      </button>
+    </div>
+    <button class="btn new-list-button" float="right">
+      + 
+      <div class="card textcenter mt-3" [ngClass]="{'add-liste': showForm}">
+  
+        <div class="apt-addheading card-header bg-primary text-white"
+        (click)="toggleAjtDisplay()">
+           <!--<fa-icon icon="plus"></fa-icon> -->Add ANOTHER Liste
+        </div><!-- card-header -->
+      
+        <div class="card-body">
+      
+          <form id="listeForm" novalidate
+          (ngSubmit)="newList(listeForm.value)"  
+          #listeForm="ngForm"
+          >
+           <!--handleadd hiya newList -->
+          
+            <div class="form-group form-row">
+              <label class="col-md-2 col-form-label text-md-right" for="listeTitle">listeTitle</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" name="listeTitle" id="listeTitle" placeholder="liste's Title">
+              </div><!-- col-md-10 --> 
+            </div><!-- form-group --> 
+      
+         
+            <div class="form-group form-row">
+              <label class="col-md-2 col-form-label text-md-right" for="listeDate">Date</label>
+              <div class="col-md-4">
+                <input type="date" class="form-control" id="listeDate" name="listeDate">
+              </div><!-- col-md-4 --> 
+              <label class="col-md-2 col-form-label text-md-right" for="listeTime">Time</label>
+              <div class="col-md-4">
+                <input type="time" class="form-control" name="listeTime" id="listeTime" >
+              </div><!-- col-md-4 --> 
+            </div><!-- form-group -->
+  
+  
+            <div class="form-group form-row">
+              <label class="col-md-2 text-md-right" for="cards">Card</label>
+              <div class="col-md-10">
+                <textarea class="form-control" rows="4" cols="50"
+                  name="cards" id="cards" placeholder="Card"></textarea>
+              </div><!-- col-md-10 --> 
+            </div><!-- form-group -->
+    
+         
+          <app-cards (clickSender)="addCard($event)">
+    
+            <div class="form-group form-row">
+              <label class="col-md-2 text-md-right" for="card">Card</label>
+              <div class="col-md-10">
+                <textarea class="form-control" rows="4" cols="50"
+                  name="card" id="card" placeholder="Card"></textarea>
+              </div><!-- col-md-10 --> 
+            </div><!-- form-group -->
+    
+          </app-cards>
+          
+      
+             <div class="form-group form-row mb-0">
+              <div class="offset-md-2 col-md-10">
+                <button type="submit" class="btn btn-primary d-block ml-auto">
+                  Add Listeeeee
+                </button>
+              </div><!-- col-md-offset-2 --> 
+            </div><!-- form-group -->
+      
+          </form>
+        </div><!-- card-body -->
+      </div><!-- card-primary -->
+    
+    </button>
+  </div>
+  
+  
